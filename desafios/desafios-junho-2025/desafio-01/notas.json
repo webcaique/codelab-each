@@ -1,0 +1,22 @@
+{
+  "alunos": [
+    {
+      "id": 0,
+      "nome": "caique",
+      "nota1": 10,
+      "nota2": 10
+    },
+    {
+      "id": 1,
+      "nome": "teste",
+      "nota1": 10,
+      "nota2": 10
+    },
+    {
+      "id": 2,
+      "nome": "cada",
+      "nota1": 2,
+      "nota2": 2
+    }
+  ]
+}

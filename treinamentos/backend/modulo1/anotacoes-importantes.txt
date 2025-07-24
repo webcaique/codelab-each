@@ -1,0 +1,28 @@
+cd ~ vai no repositório do usuário
+
+node arquivo.js => roda o arquivo
+
+ESCOPO
+Região em que um código é válido
+
+function f(){
+	Espoco;
+	let varialvel; => só existe aqui dentro
+}
+
+{
+Escopo
+}
+
+módulo (%) => resto da divisão
+
+let x = 10;
+
+let y = ++x;
+console.log(y);// y = 11;
+
+let z = y++;
+console.log(z); // z = 11;
+
+shift => remove o 1° elemento do array
+unshift => adiciona ao 1° elemento do array

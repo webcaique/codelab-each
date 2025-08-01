@@ -55,10 +55,6 @@ services:
     python manage.py migrate && python manage.py collectstatic --noinput && daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application
 
   autoDeployTrigger: commit
-
-
-services:
-
 - type: keyvalue
 
   name: devclicker-rediskey

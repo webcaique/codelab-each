@@ -1,1 +1,1 @@
-web: daphne devClicker.asgi:application
+daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application

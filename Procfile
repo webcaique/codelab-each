@@ -1,1 +1,1 @@
-daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application
+python manage.py migrate

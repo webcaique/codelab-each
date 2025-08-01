@@ -12,19 +12,43 @@ databases:
     postgresMajorVersion: "17"
 
 services:
-  - type: web
-    name: devclicker
-    env: python
-    plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: >
-      python manage.py migrate &&
-      python manage.py collectstatic --noinput &&
-      daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application
-    envVars:
-      - key: SECRET_KEY
-        generateValue: true
-      - key: DEBUG
-        value: "False"
-      - key: ALLOWED_HOSTS
-        value: "devclicker.onrender.com"
+
+- type: web
+
+  name: devclicker
+
+  runtime: python
+
+  repo: https://github.com/webcaique/codelab-each
+
+  branch: server
+
+  plan: free
+
+  envVars:
+
+  - key: DATABASE_URL
+
+    sync: false
+
+  - key: ALLOWED_HOSTS
+
+    sync: false
+
+  - key: DEBUG
+
+    sync: false
+
+  - key: SECRET_KEY
+
+    sync: false
+
+  region: oregon
+
+  buildCommand: pip install -r requirements.txt
+
+  startCommand: |
+
+    python manage.py migrate && python manage.py collectstatic --noinput && daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application
+
+  autoDeployTrigger: commit

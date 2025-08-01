@@ -29,19 +29,19 @@ services:
 
   - key: DATABASE_URL
 
-    sync: false
+    sync: true
 
   - key: DJANGO_ALLOWED_HOST
 
-    sync: false
+    sync: true
 
   - key: DEBUG
 
-    sync: false
+    sync: true
 
   - key: SECRET_KEY
 
-    sync: false
+    sync: true
 
   region: oregon
 

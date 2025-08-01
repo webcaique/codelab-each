@@ -39,7 +39,7 @@ services:
 
     sync: true
 
-  - key: SECRET_KEY
+  - key: DJANGO_SECRET_KEY
 
     sync: true
 

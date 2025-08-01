@@ -10,20 +10,31 @@ from .models import Companies
 # FUNÇÕES
 
 # Detecta qualquer atualização no banco de dados (por exemplo, pontuação de uma empresa mudou)
-def updateDetect(players):
-    # Obtém o "channel layer" configurado no settings (Redis ou InMemory)
-    channel_layer = get_channel_layer()
+# def updateDetect(players):
+#     # Obtém o "channel layer" configurado no settings (Redis ou InMemory)
+#     channel_layer = get_channel_layer()
 
-    # Envia uma mensagem para todos os clientes conectados ao grupo "leaderboard"
+#     # Envia uma mensagem para todos os clientes conectados ao grupo "leaderboard"
+#     async_to_sync(channel_layer.group_send)(
+#         "leaderboard",            # nome do grupo para broadcast
+#         {
+#             "type": "leaderboard.update",       # tipo da mensagem → invoca leaderboard_update no consumer
+#             "data": {
+#                 "player": players,  # dados que serão enviados no payload
+#             }
+#         }
+#     )
+
+def updateDetect(players):
+    channel_layer = get_channel_layer()
     async_to_sync(channel_layer.group_send)(
-        "leaderboard",            # nome do grupo para broadcast
+        "leaderboard",
         {
-            "type": "leaderboard.update",       # tipo da mensagem → invoca leaderboard_update no consumer
-            "data": {
-                "player": players,  # dados que serão enviados no payload
-            }
+            "type": "leaderboard.update",
+            "data": {"player": players}
         }
     )
+
 
 # Ele formata o dados para poder enviar para o leaderboard
 def leaderboardFormat():

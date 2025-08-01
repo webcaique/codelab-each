@@ -108,6 +108,7 @@ function postCompany(post){
             return res.json()
         })
         .then(data => {
+            dispatchNameSubmit('submitSucess', {companyName: post.companyName})
             lsCount = 0;
             setCookie("id", data.id, 8);
             idPlayer = getCookie("id");
@@ -161,7 +162,6 @@ function updateNamePlayer(name){
         if(existName){
             dispatchNameSubmit('submitError', {error: "Nome já existente!"})
         } else {
-            dispatchNameSubmit('submitSucess', {companyName: name})
             postCompany({"companyName": name});
         }
     })

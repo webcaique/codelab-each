@@ -1,0 +1,73 @@
+# Byte-compiled / cache / logs
+__pycache__/
+*.py[cod]
+*.log
+*.pot
+*.pyc
+**/__pycache__
+
+# Environment
+.env
+.venv/
+venv/
+**/venv
+**/.venv
+env/
+ENV/
+**env/
+**ENV/
+*.env
+**.env
+*.venv
+**.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+
+# Migrations (se você quiser ignorar elas, mas geralmente é melhor versionar)
+# **Descomente abaixo se quiser ignorar**
+# */migrations/
+# !*/migrations/__init__.py
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+
+# Node.js (se usar frontend com Node)
+node_modules/
+package-lock.json
+
+# Build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Yarn
+yarn.lock
+
+# JetBrains IDE
+*.iml
+*.ipr
+*.iws

@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
+from decouple import config
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,6 +30,7 @@ SECRET_KEY = os.environ.get("DJANGO_DEBUG_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG")
+
 
 ALLOWED_HOSTS = str(os.environ.get("DJANGO_ALLOWED_HOST")).split(",")
 
@@ -101,15 +105,21 @@ CHANNEL_LAYERS = {
 #     }
 # }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": os.environ.get("DJANGO_MYSQL_DATABASE_ENGINE"),
+#         "NAME": os.environ.get("DJANGO_NAME_DB"),
+#         "USER": os.environ.get("DJANGO_NAME_USER"),
+#         "PASSWORD": os.environ.get("DJANGO_PASSWORD_USER"),
+#         "HOST": os.environ.get("DJANGO_DB_HOST"),
+#         "PORT": os.environ.get("DJANGO_DB_PORT"),
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("DJANGO_MYSQL_DATABASE_ENGINE"),
-        "NAME": os.environ.get("DJANGO_NAME_DB"),
-        "USER": os.environ.get("DJANGO_NAME_USER"),
-        "PASSWORD": os.environ.get("DJANGO_PASSWORD_USER"),
-        "HOST": os.environ.get("DJANGO_DB_HOST"),
-        "PORT": os.environ.get("DJANGO_DB_PORT"),
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 # Password validation

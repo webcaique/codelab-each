@@ -27,7 +27,7 @@ pip-delete-this-directory.txt
 db.sqlite3
 db.sqlite3-journal
 media/
-staticfiles/
+#staticfiles/
 static/
 
 # Migrations (se você quiser ignorar elas, mas geralmente é melhor versionar)

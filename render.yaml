@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: devClicker
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "daphne devClicker.asgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: devClicker.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "devClicker.onrender.com"
+      - fromGroup: devClicker-db

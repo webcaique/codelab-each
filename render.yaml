@@ -31,7 +31,7 @@ services:
 
     sync: false
 
-  - key: ALLOWED_HOSTS
+  - key: DJANGO_ALLOWED_HOST
 
     sync: false
 

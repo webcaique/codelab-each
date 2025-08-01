@@ -1,20 +1,31 @@
+version: "1"
+
+databases:
+  - name: devClicker-db
+    databaseName: devclicker_db
+    user: devclicker_db_user
+    plan: free
+    region: oregon
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+    postgresMajorVersion: "17"
+
 services:
   - type: web
-    name: devClicker
+    name: devclicker
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: |
+    startCommand: >
       python manage.py migrate &&
       python manage.py collectstatic --noinput &&
       daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application
     envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: devClicker.settings
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
-        value: "codelab-each.onrender.com, 127.0.0.1, 0.0.0.0"
+        value: "codelab-each.onrender.com"
       - fromGroup: devClicker-db

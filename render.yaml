@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "daphne devClicker.asgi:application"
+    startCommand: "daphne -b 0.0.0.0 -p $PORT devClicker.asgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: devClicker.settings

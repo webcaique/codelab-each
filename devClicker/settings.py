@@ -160,7 +160,7 @@ USE_TZ = True
 # Localização dos arquivos estáticos
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Define a pasta local que vai "ser" o static
 STATICFILES_DIRS = [
